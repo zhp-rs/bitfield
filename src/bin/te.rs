@@ -23,12 +23,8 @@ fn main() {
     .with_b6(0b101101)
     .with_s(0x1122);
     println!("{:?}", da);
-    let bs = da.into_bytes();
-    let d_u32 = u32::from_ne_bytes(bs);
+    let d_u32 = u32::from(da);
     println!("{:#b}, {:#x}", d_u32, d_u32);
-
-    let d_u16 = u16::from_ne_bytes(bs[..2].try_into().unwrap());
-    println!("{:#b}, {:#x}", d_u16, d_u16);
 
     let dd = Pa::from(0x12345678);
     let di = u32::from(dd);
